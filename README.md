@@ -6,6 +6,9 @@ you can get an example plugin [here](https://github.com/MiniGameAPI-PM/MGARace) 
 
 it isn't a minigame it's api and manager for minigames
 
+
+[old repo](https://github.com/JustD01t/MiniGameAPI)
+
 **TODO:**
 
 1.Organize functions in alphabetical order [ ]
