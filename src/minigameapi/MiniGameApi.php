@@ -43,7 +43,7 @@ class MiniGameApi extends PluginBase
 		$this->getServer()->getPluginManager()->registerEvents(new PlayerCommandPreprocessEventListener($this->getGameManager()), $this);
 		$this->getServer()->getPluginManager()->registerEvents(new PlayerJoinEventListener($this), $this);
 		$this->getServer()->getPluginManager()->registerEvents(new PlayerRespawnEventListener($this), $this);
-		$this->baseLang = new Language($this->getConfig()->get('language', 'auto') == 'auto' ? $this->getServer()->getProperty("settings.language") : $this->getConfig()->get('language'), $this->getDataFolder() . 'lang' . DIRECTORY_SEPARATOR);
+		$this->baseLang = new Language($this->getConfig()->get('language', 'auto') == 'auto' ? $this->getServer()->getLanguage()->getLang(): $this->getConfig()->get('language'), $this->getDataFolder() . 'lang' . DIRECTORY_SEPARATOR);
 		$this->getServer()->getCommandMap()->register('minigameapi', new MiniGameApiCommand($this));
 		$this->getServer()->getCommandMap()->register('quit', new QuitCommand($this));
 	}
