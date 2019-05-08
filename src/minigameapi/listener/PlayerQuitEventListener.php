@@ -1,15 +1,20 @@
 <?php
+
 namespace minigameapi\listener;
+
 use minigameapi\GameManager;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerQuitEvent;
 
-class PlayerQuitEventListener implements Listener {
+class PlayerQuitEventListener implements Listener
+{
 	private $gameManager;
+
 	public function __construct(GameManager $gameManager) {
 		$this->gameManager = $gameManager;
 	}
-	public function onPlayerQuit(PlayerQuitEvent $playerQuitEvent) {
+
+	public function onPlayerQuit(PlayerQuitEvent $playerQuitEvent): void {
 		$this->gameManager->removePlayer($playerQuitEvent->getPlayer());
 	}
 }
