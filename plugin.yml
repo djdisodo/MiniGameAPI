@@ -8,15 +8,15 @@ description: The plugin that helps to managing minigame plugins
 website: https://github.com/MiniGameAPI-PM
 load: POSTWORLD
 permissions:
- minigameapi:
-  description: "control all functions of minigameapi"
-  default: op
-  children:
-    minigameapi.join:
-      default: true
-    minigameapi.quit:
-      default: true
-    minigameapi.list:
-      default: true
-    minigameapi.kill:
-      default: op
+  minigameapi:
+    description: "control all functions of minigameapi"
+    default: op
+    children:
+      minigameapi.join:
+        default: true
+      minigameapi.quit:
+        default: true
+      minigameapi.list:
+        default: true
+      minigameapi.kill:
+        default: op

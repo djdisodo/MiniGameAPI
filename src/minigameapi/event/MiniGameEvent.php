@@ -15,7 +15,7 @@ abstract class MiniGameEvent extends PluginEvent
 		$this->game = $game;
 	}
 
-	public function getGame(): Game {
+	public function getGame() : Game {
 		return $this->game;
 	}
 }

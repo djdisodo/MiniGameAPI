@@ -14,9 +14,11 @@ class PlayerJoinEventListener implements Listener
 		$this->miniGameApi = $miniGameApi;
 	}
 
-	public function onPlayerJoin(PlayerJoinEvent $event): void {
+	public function onPlayerJoin(PlayerJoinEvent $event) : void {
 		$data = $this->miniGameApi->getPlayerData($event->getPlayer()->getName());
-		if (is_null($data)) return;
+		if (is_null($data)) {
+			return;
+		}
 		$data->restore($event->getPlayer());
 	}
 }

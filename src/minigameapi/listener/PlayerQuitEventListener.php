@@ -14,7 +14,7 @@ class PlayerQuitEventListener implements Listener
 		$this->gameManager = $gameManager;
 	}
 
-	public function onPlayerQuit(PlayerQuitEvent $playerQuitEvent): void {
+	public function onPlayerQuit(PlayerQuitEvent $playerQuitEvent) : void {
 		$this->gameManager->removePlayer($playerQuitEvent->getPlayer());
 	}
 }

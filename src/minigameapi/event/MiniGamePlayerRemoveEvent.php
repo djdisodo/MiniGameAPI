@@ -14,7 +14,7 @@ class MiniGamePlayerRemoveEvent extends MiniGameEvent
 		parent::__construct($game);
 	}
 
-	public function getPlayer(): Player {
+	public function getPlayer() : Player {
 		return $this->player;
 	}
 }

@@ -15,7 +15,7 @@ class MiniGamePlayerQuitEvent extends MiniGameEvent implements Cancellable
 		$this->player = $player;
 	}
 
-	public function getPlayer(): Player {
+	public function getPlayer() : Player {
 		return $this->player;
 	}
 }

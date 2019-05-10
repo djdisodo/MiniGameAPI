@@ -10,7 +10,7 @@ class Time
 		$this->setTime($tick, $sec, $min, $hour);
 	}
 
-	public function setTime(int $tick = 0, float $sec = 0, float $min = 0, float $hour = 0): Time {
+	public function setTime(int $tick = 0, float $sec = 0, float $min = 0, float $hour = 0) : Time {
 		$min += $hour * 60;
 		$sec += $min * 60;
 		$tick += $sec * 20;
@@ -18,7 +18,7 @@ class Time
 		return $this;
 	}
 
-	public function addTime(int $tick = 0, float $sec = 0, float $min = 0, float $hour = 0): Time {
+	public function addTime(int $tick = 0, float $sec = 0, float $min = 0, float $hour = 0) : Time {
 		$min += $hour * 60;
 		$sec += $min * 60;
 		$tick += $sec * 20;
@@ -26,7 +26,7 @@ class Time
 		return $this;
 	}
 
-	public function reduceTime(int $tick = 0, float $sec = 0, float $min = 0, float $hour = 0): Time {
+	public function reduceTime(int $tick = 0, float $sec = 0, float $min = 0, float $hour = 0) : Time {
 		$min += $hour * 60;
 		$sec += $min * 60;
 		$tick += $sec * 20;
@@ -34,23 +34,23 @@ class Time
 		return $this;
 	}
 
-	public function asSec(): float {
+	public function asSec() : float {
 		return $this->tick / 20;
 	}
 
-	public function asMin(): float {
+	public function asMin() : float {
 		return $this->asSec() / 60;
 	}
 
-	public function asHour(): float {
+	public function asHour() : float {
 		return $this->asMin() / 60;
 	}
 
-	public function asTick(): int {
+	public function asTick() : int {
 		return intval($this->tick);
 	}
 
-	public function format(): array {
+	public function format() : array {
 		return explode(':', gmdate('H:i:s', $this->asSec()));
 		//array(0 => hour,1 => min, 2 => sec)
 	}

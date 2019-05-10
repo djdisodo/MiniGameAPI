@@ -19,7 +19,7 @@ class QuitCommand extends PluginCommand
 		$this->setPermission('minigameapi.quit');
 	}
 
-	public function execute(CommandSender $sender, string $commandLabel, array $args): void {
+	public function execute(CommandSender $sender, string $commandLabel, array $args) : void {
 		$this->miniGameApiCommand->execute($sender, $commandLabel, [$this->miniGameApiCommand->getMiniGameApi()->getLanguage()->translateString('command.miniGameApi.quit')]);
 	}
 }

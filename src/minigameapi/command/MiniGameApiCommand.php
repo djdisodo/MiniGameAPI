@@ -28,7 +28,7 @@ class MiniGameApiCommand extends PluginCommand
 		$this->setDescription($this->getLanguage()->translateString('command.miniGameApi.description'));
 	}
 
-	public function execute(CommandSender $sender, string $commandLabel, array $args): void {
+	public function execute(CommandSender $sender, string $commandLabel, array $args) : void {
 		if (!isset($args[0])) {
 			$sender->sendMessage($this->getMiniGameApi()->getServer()->getLanguage()->translateString('commands.generic.usage', [$this->getUsage()]));
 			return;
@@ -120,15 +120,15 @@ class MiniGameApiCommand extends PluginCommand
 		return;
 	}
 
-	public function getMiniGameApi(): MiniGameApi {
+	public function getMiniGameApi() : MiniGameApi {
 		return $this->miniGameApi;
 	}
 
-	public function getPrefix(): string {
+	public function getPrefix() : string {
 		return $this->getMiniGameApi()->getPrefix();
 	}
 
-	public function getLanguage(): Language {
+	public function getLanguage() : Language {
 		return $this->getMiniGameApi()->getLanguage();
 	}
 }

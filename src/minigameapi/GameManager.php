@@ -14,44 +14,50 @@ class GameManager
 		$this->miniGameApi = $miniGameApi;
 	}
 
-	public function broadcastMessageToGames(string $message): void {
+	public function broadcastMessageToGames(string $message) : void {
 		foreach ($this->getGames() as $game) {
 			$game->broadcastMessage($message);
 		}
 	}
 
-	public function getMiniGameApi(): MiniGameApi {
+	public function getMiniGameApi() : MiniGameApi {
 		return $this->miniGameApi;
 	}
 
-	public function submitGame(Game $game): bool {
-		if (!is_null($this->getGame($game->getName()))) return false;
+	public function submitGame(Game $game) : bool {
+		if (!is_null($this->getGame($game->getName()))) {
+			return false;
+		}
 		$this->games[] = $game;
 		return true;
 	}
 
-	public function removeGame(string $gameName): void {
+	public function removeGame(string $gameName) : void {
 		foreach ($this->getGames() as $key => $game) {
 			if ($game->getName() == $gameName) {
-				if ($game->isRunning()) $game->end(Game::END_KILLED_GAME);
+				if ($game->isRunning()) {
+					$game->end(Game::END_KILLED_GAME);
+				}
 				unset($this->games[$key]);
 			}
 		}
 		$this->games = array_values($this->games);
 	}
 
-	public function getGames(): array {
+	public function getGames() : array {
 		return $this->games;
 	}
 
-	public function getGame(string $gameName): ?Game {
+	public function getGame(string $gameName) : ?Game {
 		foreach ($this->getGames() as $game) {
-			if ($game->getName() == $gameName) return $game;
+			if ($game->getName() == $gameName) {
+				return $game;
+			}
 		}
 		return null;
 	}
 
-	public function getTeams(): array {
+	public function getTeams() : array {
 		$result = [];
 		foreach ($this->getGames() as $game) {
 			$result = array_merge($result, $game->getTeams());
@@ -59,7 +65,7 @@ class GameManager
 		return $result;
 	}
 
-	public function getPlayers(): array {
+	public function getPlayers() : array {
 		$result = [];
 		foreach ($this->getGames() as $game) {
 			$result = array_merge($result, $game->getPlayers());
@@ -67,28 +73,34 @@ class GameManager
 		return $result;
 	}
 
-	public function removePlayer(Player $player): bool {
+	public function removePlayer(Player $player) : bool {
 		foreach ($this->getGames() as $game) {
-			if ($game->removePlayer($player)) return true;
+			if ($game->removePlayer($player)) {
+				return true;
+			}
 		}
 		return false;
 	}
 
-	public function quitPlayer(Player $player): bool {
+	public function quitPlayer(Player $player) : bool {
 		foreach ($this->getGames() as $game) {
-			if ($game->quitPlayer($player)) return true;
+			if ($game->quitPlayer($player)) {
+				return true;
+			}
 		}
 		return false;
 	}
 
-	public function getJoinedGame(Player $player): ?Game {
+	public function getJoinedGame(Player $player) : ?Game {
 		foreach ($this->getGames() as $game) {
-			if ($game->isInGame($player)) return $game;
+			if ($game->isInGame($player)) {
+				return $game;
+			}
 		}
 		return null;
 	}
 
-	public function update(int $updateCycle): void {
+	public function update(int $updateCycle) : void {
 		foreach ($this->getGames() as $game) {
 			$game->update($updateCycle);
 		}

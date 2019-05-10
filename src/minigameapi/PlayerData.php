@@ -30,7 +30,7 @@ class PlayerData
 		$this->score = $player->getScoreTag();
 	}
 
-	public function restore(Player $player): void {
+	public function restore(Player $player) : void {
 		$player->teleport(new Position($this->location['x'], $this->location['y'], $this->location['z'], Server::getInstance()->getLevelByName($this->location['level'])));
 		$player->setNameTag($this->nameTag);
 		$player->getInventory()->setContents($this->items, true);
