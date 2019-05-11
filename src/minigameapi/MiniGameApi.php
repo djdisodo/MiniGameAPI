@@ -34,10 +34,10 @@ class MiniGameApi extends PluginBase
 		@mkdir($this->getDataFolder() . 'lang');
 		$this->saveDefaultConfig();
 		foreach ($this->getResources() as $resource) {
-			if (substr($resource->getFilename(), -3) == 'ini') {
+			if (substr($resource->getFilename(), -4) == '.ini') {
 				file_put_contents($this->getDataFolder() . 'lang' . DIRECTORY_SEPARATOR . $resource->getFilename(), file_get_contents($resource->getPathname()));
 			}
-			if (substr($resource->getFilename(), -3) == 'png') {
+			if ($resource->getFilename() === 'icon.png') {
 				file_put_contents($this->getDataFolder() . 'icon.png', file_get_contents($resource->getPathname()));
 			}
 		}
